@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+    <!--<div class="container">
+        <form action="/upload/upload" method="POST" enctype="multipart/form-data">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Project</span>
+                </div>
+                <input type="text" class="form-control" name="project" placeholder="project" aria-label="project" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">version</span>
+                </div>
+                <input type="text" class="form-control" name="version" placeholder="1.0.0.0" aria-label="version" aria-describedby="addon-wrapping">
+            </div>
+             Default unchecked 
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="defaultChecked" name="stable">
+                <label class="custom-control-label" for="defaultChecked">Release</label>
+            </div>
+
+            <div class="file-field">
+                <div class="btn btn-primary btn-sm float-left">
+                    <span>files</span>
+                    <input type="file" id="files" name="files" multiple="multiple">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                </div>
+            </div>
+
+            <div class="form-group purple-border">
+                <label for="filemap">File map</label>
+                <textarea class="form-control" id="filemap" rows="7" name="filemap"></textarea>
+            </div>
+
+            <button class="btn btn-info btn-block my-4" type="submit">upload</button>
+        </form>
+        </div>-->
+
+
+    <div class="container">
+    <form action="/upload/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="project">Project:</label>
+            <input type="text" name="project" value="vnote" />
+        </div>
+        <div class="form-group">
+            <label for="version">Version:</label>
+            <input type="text" name="version" placeholder="1.0.0.0" />
+        </div>
+        <div class="form-group">
+            <label for="stable">Release</label>
+            <input type="text" name="stable" value="true" />
+        </div>
+        <div class="form-group">
+            <label for="files">File #1</label>
+            <input type="file" name="files" />
+        </div>
+        <div class="form-group">
+            <label for="files">File #2</label>
+            <input type="file" name="files" />
+        </div>
+        <div class="form-group">
+            <label for="files">File #2</label>
+            <input type="file" name="files" />
+        </div>
+        <div class="form-group">
+            <label for="files">File #2</label>
+            <input type="file" name="files" />
+        </div>
+        <div class="form-group">
+            <label for="files">File #2</label>
+            <input type="file" name="files" />
+        </div>
+        <div class="form-group text-center">
+            <input type="submit" value="upload" />
+        </div>
+    </form>
+        </div>
+</body>
+</html>

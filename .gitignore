@@ -3,3 +3,6 @@
 ################################################################################
 
 /node_board/node_modules
+/node_board/bin
+/.vs/node_board/v16/.suo
+/node_board/obj/Debug
