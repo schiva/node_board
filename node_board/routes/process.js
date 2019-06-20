@@ -22,9 +22,14 @@ router.post('/auth', async function (req, res) {
         return;
     }
     try {
-        const rows = authUser(paramId, paramPassword);        
-        console.dir(rows);
-        res.status(200).send('로그인 처리 성공');
+        const rows = await authUser(paramId, paramPassword);        
+        if (rows.length >= 1) {            
+            res.status(200).send('로그인 처리 성공');
+            console.log('사용자 인증 조회 자료 ===========');
+            console.dir(rows);
+        } else {
+            res.status(200).send('로그인 실패 - 사용자 자료없음');
+        }
 
     } catch (err) {
         console.error('Adduser 데이타베이스 처리 오류 ');
@@ -40,12 +45,6 @@ router.post('/adduser', async function (req, res) {
     var paramName = req.body.name || req.query.name;
     var paramAge = req.body.age || req.query.age;
 
-    console.log('adduser ---------->');
-    console.log(paramId);
-    console.log(paramPassword);
-    console.log(paramName);
-    console.log(paramAge);
-    console.log('<----------adduser ');
 
     if (!pool) {
         res.status(400).send('데이타베이스연결 오류.');
@@ -58,9 +57,7 @@ router.post('/adduser', async function (req, res) {
     } catch (err) {
         console.error('Adduser 데이타베이스 처리 오류 ');
         console.dir(err);
-    }
-    
-    
+    }        
 });
 
 module.exports = router;
