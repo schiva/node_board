@@ -28,12 +28,11 @@ router.post('/auth', async function (req, res) {
             console.log('사용자 인증 조회 자료 ===========');
             console.dir(rows);
         } else {
-            res.status(200).send('로그인 실패 - 사용자 자료없음');
+            res.status(400).send('로그인 실패 - 사용자 자료없음');
         }
 
     } catch (err) {
-        console.error('Adduser 데이타베이스 처리 오류 ');
-        console.dir(err);
+        console.error('Auth 데이타베이스 처리 오류 ');        
         res.status(400).send('로그인 오류');
     }
 });

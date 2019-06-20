@@ -2,7 +2,8 @@
 
 var authUser = async (id, password) => {
     try {
-        const connection = await pool.getConnection(async conn => conn);
+        const connection = await pool.getConnection(async conn => conn);    
+
         try {
             var columns = ['id', 'name', 'age'];
             var tablename = 'users';
@@ -17,25 +18,18 @@ var authUser = async (id, password) => {
                     return (rows);
                 } else {
                     connection.release();
-                    console.log('사용자 인증 자료없음');
-                    return false;
-                }                                
-                
+                    throw { Error: '사용자 자료 없음' };                    
+                }                                                
             } else {
                 connection.release();
-                return false;
+                throw { Error: '사용자 자료 조회 오류' };
             }
         } catch (err) {
             connection.release();
-            console.error('사용자 인증 오류 ');
-            console.dir(err);
-            return false;
+            throw { Error: err.message };
         }
-
     } catch (err) {
-        console.error('데이타베이스 처리 오류 ');
-        console.dir(err);
-        return false;
+        throw { Error: err.message };
     }
 }
 
