@@ -27,6 +27,7 @@ router.post('/auth', async function (req, res) {
             res.status(200).send('로그인 처리 성공');
             console.log('사용자 인증 조회 자료 ===========');
             console.dir(rows);
+            console.log('test~~~~~~~~');
         } else {
             res.status(400).send('로그인 실패 - 사용자 자료없음');
         }

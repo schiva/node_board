@@ -13,7 +13,7 @@ var addUser = async (id, name, age, password) => {
             connection.release();
             console.error('사용자 추가 오류 ');
             console.dir(err);
-            return false;
+            throw { Error: err }
         }
 
     } catch (err) {
